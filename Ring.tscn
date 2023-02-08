@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ring.gd" type="Script" id=2]
+
+[node name="Ring" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 363, 260 )
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 829, 270 )
+disable_movements = true
