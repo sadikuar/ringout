@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var health = 100
+
 export var speed = 400
 export var disable_movements = false
 
@@ -27,5 +29,13 @@ func _process(delta):
 			velocity = velocity.normalized() * speed
 	
 		move_and_collide(velocity * delta)
-		position.x = clamp(position.x, $Sprite.get_rect().size.x / 2, screen_size.x - $Sprite.get_rect().size.x / 2)
-		position.y = clamp(position.y, $Sprite.get_rect().size.y / 2, screen_size.y - $Sprite.get_rect().size.y / 2)
+		
+		# Binds player to the viewport's size
+		position.x = clamp(position.x, $PlayerSprite.get_rect().size.x / 2, screen_size.x - $PlayerSprite.get_rect().size.x / 2)
+		position.y = clamp(position.y, $PlayerSprite.get_rect().size.y / 2, screen_size.y - $PlayerSprite.get_rect().size.y / 2)
+
+func start_hit_countdown():
+	$HitCountdown.start()
+	
+func get_time_left():
+	return $HitCountdown.get_time_left()

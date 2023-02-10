@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if not disable_movements:
 		if Input.is_action_pressed("Punch 1"):
 			$CollisionShape2D.disabled = false
@@ -26,5 +26,12 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Hand_body_entered(body):
-	body.position.x += 10
-	print("Player withing hit range!")
+	# Hit countdown has not started or has finished
+	if body.get_time_left() == 0:
+		body.position.x += 10 # Apply position change to player
+		body.health -= 10 # Reduce player health
+		body.start_hit_countdown() # Start countdown again
+	
+	if body.health == 0:
+		body.queue_free()
+	
