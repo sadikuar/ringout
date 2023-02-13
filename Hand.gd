@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if not disable_movements:
-		if Input.is_action_pressed("Punch 1"):
+		if Input.is_action_just_pressed("Punch 1"):
 			$CollisionShape2D.disabled = false
 			$AnimatedSprite.play()
 
