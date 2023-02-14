@@ -16,16 +16,12 @@ func _process(_delta):
 	if not disable_movements:
 		if Input.is_action_just_pressed("Punch 1"):
 			$CollisionShape2D.disabled = false
-			$AnimatedSprite.play()
 
 
-func _on_AnimatedSprite_animation_finished():
-	$CollisionShape2D.disabled = true
-	$AnimatedSprite.stop()
-	$AnimatedSprite.frame = 0
+# Stop collision when player's animation is finished
 
 
-func _on_Hand_body_entered(body):
+func _on_PlayerHitzone_body_entered(body):
 	# Hit countdown has not started or has finished
 	if body.get_time_left() == 0:
 		body.position.x += 10 # Apply position change to player
@@ -34,4 +30,3 @@ func _on_Hand_body_entered(body):
 	
 	if body.health == 0:
 		body.queue_free()
-	
