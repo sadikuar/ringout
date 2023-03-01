@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="HealthBar" type="HBoxContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+
+[node name="TextureProgress" type="TextureRect" parent="."]
+margin_bottom = 40.0
