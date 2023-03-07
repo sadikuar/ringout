@@ -9,5 +9,5 @@ rect_scale = Vector2( 2, 2 )
 
 [node name="TextureProgress" type="TextureRect" parent="."]
 margin_right = 216.0
-margin_bottom = 40.0
+margin_bottom = 24.0
 texture = ExtResource( 1 )
